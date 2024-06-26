@@ -16,3 +16,6 @@ const result = num + str;
 console.log(result); // 1020 
 // 묵시적으로 num이라는 숫자값이 string 으로 형변환됨.
 
+
+
+// TODO 
