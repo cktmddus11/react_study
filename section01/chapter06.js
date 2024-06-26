@@ -18,4 +18,3 @@ console.log(result); // 1020
 
 
 
-// TODO 

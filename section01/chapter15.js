@@ -19,3 +19,4 @@ let person = {
 console.log(person.age);
 
 console.log(person['age']); // 키쓸때  문자열로 해야됨.
+// 프로퍼티에 없는 키값을 요청하면 undefined 출력
