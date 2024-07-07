@@ -1,0 +1,21 @@
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Environment variables file
+.env
+
+# IDE/editor specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Mac-specific
+.DS_Store
+
+# Windows-specific
+Thumbs.db
+
