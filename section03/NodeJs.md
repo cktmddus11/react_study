@@ -63,5 +63,6 @@ package-lock.json => version : 0.6.2 해당 버전을 설치함.
 ```
 
 - node_modules 폴더, package-lock.json 파일이 
-지워지더라도 npm install 명령어를 통해서 
+지워지더라도
+npm install 명령어를 통해서 
 package.json dependencies 에 기록된 라이브러리를 다시 설치할 수 있다.
