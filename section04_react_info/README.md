@@ -83,3 +83,9 @@ npm install
 ```
 npm run dev
 ```
+
+### React App 구동원리 살펴보기
+- React App 서버 가동.
+웹 브라우저가 React Server을 접속하도록 함.
+로컬 컴퓨터에서는 port 는 중복 될 수 없음.
+http://localhost:5173/

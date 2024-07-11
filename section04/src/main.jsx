@@ -8,3 +8,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>,
 )
+// ReactDOM.createRoot - 리액트의 ROOT로 반환함.
+// <App> 이라는 컴포넌트를 랜더링한다. 
