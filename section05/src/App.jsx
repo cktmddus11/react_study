@@ -1,54 +1,36 @@
-import './App.css'
-import Header from './components/Header'; // EJS는 원래 확장자를 jsx 를 
-                                              // 필수로 써야하는데 
-                                              // vite는 이를 자동으로 처리해줌.
-import Main from './components/Main';
-import Footer from './components/Footer';
-import Button from './components/Button'
+import './App.css';
+import { useState } from "react";
 
-
-//컴포넌트 생성시  함수표현식 모두 가능. 
-// 또는 클래스도가능한데 코드양이 늘기 때문에 비추
-// 컴포넌트 첫글자 대문자 필수. 
 function App() {
-  const buttonProps = {
-      text : "메일", 
-      color : "red", 
-      a : 1, 
-      b : 2
-  };
-  const buttonProps2 = {
-    text : "블로그", 
-    color : "blue", 
-    a : 1, 
-    b : 2
-};
-  return ( 
-    // 컴포넌트 안에 컴포넌트. 같이 랜더링됨. 부모,자식 컴포넌트. 계층구조
-    // App 컴포넌트를 항상 부모로 두고 하위로 자식 컴포넌트가 있는 구조.
-    // 관례상 APP이 루트로 쓴다.
+  // const state = useState(4);
+  // console.log(state); /* {0 : undefined 초기값, 
+  //                         1  function() state를 변환하는 함수, 상태변환하는 함수} 
+  //                     */
+  const [count, setCount] = useState(0);
+  const [light, setLight] = useState("OFF");
+  console.log(count);
+
+
+  return (
     <>
-    {
-    /* <Header/> 
-    <Main />
-    <Footer /> */}
-
-      {/* props 를 계속 이어서 쓰지말고 객체를 전달하기 */}
-{/* 
-      <Button text={"메일"} color={"red"}/>  
-      <Button text={"블로그"} color={"blue"}/>
-      <Button text={"카페"}/> */}
-
-      <Button {...buttonProps}/>  
-      <Button {...buttonProps2}/>
-      <Button />
-      <Button text="카페">
-          <div>자식요소</div>
-      </Button>
-
-
+      <div>
+        <h1>{light}</h1>
+        <button onClick={() => {
+          setLight(light === 'ON' ? "OFF" : "ON");
+        }}>전구 {light === 'ON' ? "끄기" : "키기"}</button>
+      </div>
+      <div>
+        <h1>{count}</h1>
+        <button onClick={() => {
+          setCount(count + 1);
+        }}>+</button> 
+        
+        {/** Q.그냥 이런 상태감지 javascript로 처리하면 안되는건가? 
+         *    그럼 버튼 컴포넌트 자체가 리렌더링이 되는게 아님 값만 바뀌는거임
+         *  그래서 화면에서 변화가 없을거
+        */}
+      </div>
     </>
   )
 }
-// html 을 반환하는 function 을 컴포넌트라고 부름
-export default App
+export default App;
