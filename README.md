@@ -31,8 +31,8 @@
 ## SECTION 5 : React.js 임문
 - 1. 실습 준비하기 [x]
 - 2. React 컴포넌트 [x]
-- 3. JSX로 UI 표현하기 [ ]
-- 4. Props로 데이터 전달하기 [ ]
+- 3. JSX로 UI 표현하기 [x]
+- 4. Props로 데이터 전달하기 [x]
 - 5. 이벤트 처리하기 [ ]
 - 6. State로 상태관리하기 [ ]
 - 7. State와 Props [ ]
