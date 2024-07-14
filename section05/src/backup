@@ -54,3 +54,49 @@ function App() {
 }
 // html 을 반환하는 function 을 컴포넌트라고 부름
 export default App
+
+
+////// State 와 Props 
+import './App.css';
+import Counter from "./components/Counter";
+import Bulb from "./components/Bulb";
+
+// 버튼을 누를때마다 state가 바뀔때마다 리렌더링 되기 떄문에 
+// props로 받은 light 값이 바뀌면 리렌더링된다.
+
+// 리렌더링 발생
+// 1. state변경
+// 2. 자신이 제공받는 props 
+// 3. 부모 컴포넌트가 리렌더링 되면 
+
+
+// 아래 count 버튼을 누르면 Bulb 가 리렌더링이 되면서 콘솔창에 light값이
+// 출력된다. => 1번상황으로 count state가 변경되면서 리렌더링 되기 때문에
+// 자식 컴포넌트인 Bulb까지 리렌더링이 발생하기 때문이다. 
+// 이렇게 불필요한 리렌더링이 발생하지 않도록 부모컴포넌트를 분리해야한다.
+
+
+
+function App() {
+  // const state = useState(4);
+  // console.log(state); /* {0 : undefined 초기값, 
+  //                         1  function() state를 변환하는 함수, 상태변환하는 함수} 
+  //                     */
+  return (
+    <>
+      <div>
+        <Bulb />
+        {/* <h1>{light}</h1> */}
+        <Counter />
+      </div>
+
+
+      {/** Q.그냥 이런 상태감지 javascript로 처리하면 안되는건가? 
+         *    그럼 버튼 컴포넌트 자체가 리렌더링이 되는게 아님 값만 바뀌는거임
+         *  그래서 화면에서 변화가 없을거
+        */}
+     
+    </>
+  )
+}
+export default App;
