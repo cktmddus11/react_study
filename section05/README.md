@@ -55,3 +55,37 @@ ex) 버튼 클릭시 경고창 노출.
 => 부모컴포넌트가 리렌디링이 되면 자식 컴포넌트까지 리렌더링이 발생하기 때문이다. 
 이렇게 불필요한 리렌더링이 발생하지 않도록 각 state가 연관되어있지 않다면 
 컴포넌트를 분리하고 각 컴포넌트마다 state를 관리하고 부모컴포넌트에 생성하는 것이 좋다.
+
+
+
+
+# useRef 로 컴포넌트 변수 관리하기
+## 새로운 Reference 객체를 생성하는 기능.
+- const refObject = useRef();
+- useState 값이 변경되면 리렌더링됨.
+- useRef 어떤 경우에도 리렌더링을 유발하지 않음.
+- DOM 요소 조작. 리렌더링이되지않고 화면에 값을 저장해야할때.
+
+
+# React Hooks  
+클래스 컴포넌트의 기능을 함수컴포넌트에서도 이용할 수 있도록 
+하는 메서드.
+
+## 2017 React.js
+- Class 컴포넌트 주로 이용.
+모든 기능을 이용할 수 있음. 
+ex State, Ref, etc 
+문법이 복잡함. 
+- Function 컴포넌트 
+UI렌더링만 할 수 있음.
+=>>> Function 컴포넌트에서도 모든기능을 사용할 수 있도록 React Hooks 적용.
+- useState : State 기능을 낚아채오는 Hook
+- useRef : Reference 기능을 낚아채오는 Hook
+공통적으로 use 접두사를 사용함.
+
+
+
+## React Hook 주의
+- 함수 컴포넌트 내부에서만 호출가능.
+- 조건문, 반복문 내부에서는 호출 불가.
+- use접두사를 이용해서 나만의 Hook 제작 가능. ex) function useInput
