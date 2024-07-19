@@ -1,15 +1,11 @@
 import './App.css'
 import Viewer from './components/Viewer';
 import Controller from './components/Controller';
+import { useCount } from './hooks/useCount'
 
-import { useState } from 'react';
+
 function App() {
-  const [ count, setCount ]  = useState(0);
-  const countAction = (value) => {
-    setCount(count + value);
-  }
-
-
+  const { count, counterActions} = useCount();
   return (
     <div className="App">
       <div className='header'>
@@ -20,7 +16,7 @@ function App() {
         <Viewer count={count} />
       </section>
       <section>
-        <Controller countAction={countAction} />
+        <Controller acions={counterActions} />
         {/* <Controller {...counterActions}/> */}
 
       </section>

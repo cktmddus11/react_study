@@ -22,11 +22,16 @@
 
 
 
-# Props 로 데이터 전달하기
+# 5.4) Props 로 데이터 전달하기
 ## Props란? 
 - 부모컴포넌트가 자식컴포넌트에게 값을 전달할 수 있음. properties 같은거
 - 부모에서 자식으로만 가능하다. 역순은 리액트에서 불가능하다. 
-
+- 부모에서 자식으로 넘겨준 props값은 객체형태로 존재한다. 
+  text={"메일"} color={"red"} => props = {"text":"메일", "color" :"red"}
+- 넘겨받은 자식쪽에서는 객체를 해체해서 바로 사용가능
+({text, color})
+- props는 객체 뿐만아니라 html, 리엑트 컴포넌트도 전달할 수있다. 자식쪽에서 사용할떈 children이라는 객체로 사용할 수 있다.
+({text, color, children})
 
 # 이벤트 헨들링 처리하기
 ## 이벤트 헨들링이란? 
@@ -47,7 +52,7 @@ ex) 버튼 클릭시 경고창 노출.
 - const state = useState(); state 값, state 상태변환함수.
 
 
-# State를 Props로 전달하기
+# 5.7 State를 Props로 전달하기
 -  리렌더링 발생
 1. state변경
 2. 부모에서 넘겨받은 props 값이 변경되면
