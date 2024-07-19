@@ -35,8 +35,13 @@
 - 4. Props로 데이터 전달하기 [x]
 - 5. 이벤트 처리하기 [x]
 - 6. State로 상태관리하기 [x]
-- 7. State와 Props [ ]
-- 8. State로 사용자 입력 관리하기 1 [ ]
-- 9. State로 사용자 입력 관리하기 2 [ ]
-- 10. useRef로 컴포넌트의 변수 생성하기 [ ]
-- 11. React Hooks [ ]
+- 7. State와 Props [x]
+- 8. State로 사용자 입력 관리하기 1 [x]
+- 9. State로 사용자 입력 관리하기 2 [x]
+- 10. useRef로 컴포넌트의 변수 생성하기 [x]
+- 11. React Hooks [x]
+
+## SECTION 6 : 프로젝트 1. 카운터 앱
+1) 프로젝트 소개 및 준비 [x]
+2) UI 구현하기 [x]
+3) 기능 구현하기 [x]
