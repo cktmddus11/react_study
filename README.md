@@ -1,4 +1,5 @@
 # [2024 리뉴얼] 한입 크기로 잘라 먹는 리액트(React.js)
+(https://quintet.udemy.com/course/winterlood-react-basic/learn/lecture/42627370#overview)
 
 ## SECTION 2 : Javascript 기본
 - 1. Truthy와 Falsy [x]

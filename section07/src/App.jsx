@@ -1,17 +1,39 @@
 import './App.css'
 import Viewer from './components/Viewer';
 import Controller from './components/Controller';
-import { useState, useEffect } from 'react';
+import Even from './components/Even';
+
+import { useState, useEffect, useRef } from 'react';
 
 
 function App() {
   const [ count, setCount ]  = useState(0);
   const [ input, setInput ] = useState("");
 
+  const isMount = useRef(false); // 아직 마운트 되지않음.
+
+  // 마운트 => 업데이트 => 언마운트
+  // 1. 마운트 - 마운트 되고 나서 한번만 실행시키고 싶은 코드 작성 useEffect 콜백함수사용.
+  useEffect(() => {
+    console.log("mount");
+  }, [])
+  // 2. 업데이트 - 값이 변경될때마다 실행시키고 싶으면 뒤에 deps없애고 사용
+  useEffect(() =>{
+    if(!isMount.current){ // 처음 마운트 되고 변경이 일어낫을 떄만 하려면 
+      isMount.current = true; // 이렇게 ref 객체 이용
+      return;
+    }
+
+    console.log("update");
+  });
+  // 3.  언마운트
+  // Even 컴포넌트 참조
+
+
   // useEffect(callback, array);
-  useEffect(()=>{
-      console.log(`count : ${count} / input : ${input}`);
-    }, [ count , input]); // 배열의 값이 변경되면 callback함수 실행
+  // useEffect(()=>{
+  //     console.log(`count : ${count} / input : ${input}`);
+  //   }, [ count , input]); // 배열의 값이 변경되면 callback함수 실행
   // => 의존성 배열 
   // dependency array
   // deps
@@ -45,6 +67,7 @@ function App() {
       </section>
       <section>
         <Viewer count={count} />
+        {count % 2 === 0 ? <Even /> : null}
       </section>
       <section>
         <Controller countAction={countAction} />
