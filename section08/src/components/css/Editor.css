@@ -1,0 +1,28 @@
+.Editor {
+    display: flex;
+    gap: 10px;
+}
+
+.Editor input {
+    flex: 1;
+    /* 최대 길이만큼 늘어남.*/
+    padding: 15px;
+    border: 1px solid rgb(63, 178, 255);
+    border-radius: 5px;
+    outline: none;
+}
+
+.Editor input:focus {
+    border: 2px solid #2bceff;
+    /* 포커스 시 테두리 색상 */
+    
+}
+
+.Editor button {
+    cursor: pointer;
+    width: 80px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(63, 178, 255);
+    color: white;
+}
