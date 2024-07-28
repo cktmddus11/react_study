@@ -10,8 +10,8 @@ const Editor = ({ onCreate }) => {
         setContent(e.target.value);
     }
     const onKeyDown = (event) => {
-        if (event.key === 'Enter') {
-            onSubmit(event);
+        if (event.key === 'Enter') { // event.keyCode === 13 
+            onSubmit();
         }
     };
 
