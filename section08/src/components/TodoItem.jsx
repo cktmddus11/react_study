@@ -19,7 +19,8 @@ const TodoItem = ({ todo, onUpdate, onDelete }) => {
     }
     const onClickDeleteButton = () => {
         onDelete(todo.id);
-    }
+    } //  바로 onDelete를 onClick에 쓰면 안됨
+     // 처음에 todo 랜더링되면서 실행되기때문
 
 
     return <div className="TodoItem">
