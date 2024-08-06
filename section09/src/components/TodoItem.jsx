@@ -3,8 +3,8 @@ import './css/TodoItem.css';
 import { useState } from "react";
 
 
-const TodoItem = ({ todo, onUpdate, onDelete }) => {
-    const [isChecked, setIsChecked] = useState(todo.isDone);
+const TodoItem = ({ id, content, date, isDone, onUpdate, onDelete }) => {
+    const [isChecked, setIsChecked] = useState(isDone);
 
 
     const onChangeChecked = (event) => {
@@ -14,11 +14,11 @@ const TodoItem = ({ todo, onUpdate, onDelete }) => {
     const onDoneUpdate = (checked) => {
 
         if (checked) {
-            onUpdate(todo.id);
+            onUpdate(id);
         }
     }
     const onClickDeleteButton = () => {
-        onDelete(todo.id);
+        onDelete(id);
     } //  바로 onDelete를 onClick에 쓰면 안됨
      // 처음에 todo 랜더링되면서 실행되기때문
 
@@ -32,9 +32,9 @@ const TodoItem = ({ todo, onUpdate, onDelete }) => {
             style={{
                 textDecoration: isChecked
                     ? 'line-through' : 'none'
-            }}>{todo.content}
+            }}>{content}
         </div>
-        <div className="date">{new Date(todo.date).toLocaleDateString()}</div>
+        <div className="date">{new Date(date).toLocaleDateString()}</div>
         <button onClick={onClickDeleteButton}>삭제</button>
         { }
     </div>
