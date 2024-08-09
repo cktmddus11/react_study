@@ -32,3 +32,8 @@ const MemoizedComponent = memo(Component);
 //    반환값 : 최적화된 컴포넌트 
 //    Props를 기준으로 메모아제이션됨
 ```
+- 부모컴포넌트가 리렌더링 되더라도 Props가 바뀌지 않았다면 자식컴포넌트가 리렌더링 되지않도록 memo를 이용해 최적화할 수 있다. 
+
+
+## 고차 컴포넌트(HOC)
+(https://patterns-dev-kr.github.io/design-patterns/hoc-pattern/)

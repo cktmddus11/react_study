@@ -48,8 +48,8 @@ const List = ({ todos, onUpdate, onDelete }) => {
 
         <input placeholder="검색어를 입력하세요" onChange={onSearchChange} />
         <div className="todo_wrapper">
-            {filterTodos.map((todo, index) => (
-                <TodoItem {...todo} onUpdate={onUpdate} onDelete={onDelete} />
+            {filterTodos.map((todo, key) => (
+                <TodoItem {...todo} onUpdate={onUpdate} onDelete={onDelete} key={key}/>
             ))}
 
         </div>
