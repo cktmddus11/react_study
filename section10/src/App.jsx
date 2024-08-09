@@ -1,4 +1,4 @@
-import { useState, useRef, useReducer } from 'react'
+import { useState, useRef, useReducer, useCallback } from 'react'
 import Header from './components/Header';
 import Editor from './components/Editor';
 import List from './components/List';
@@ -30,7 +30,11 @@ function App() {
   const [todos, dispatch] = useReducer(reducer, mockData);
   const idRef = useRef(3);
 
-  const onCreate = (content) => {
+
+  // useCallback :deps에 빈배열을 두어
+  // 컴포넌트가 처음으로 mount될때 실행할 함수가 정의되도록
+  // 함
+  const onCreate = useCallback((content) => {
     dispatch({
       type: 'CREATE',
       data: {
@@ -40,23 +44,23 @@ function App() {
         date: new Date().getTime(),
       },
     })
-  }
+  }, []);
 
-  const onUpdate = (targetId) => {
+  const onUpdate = useCallback((targetId) => {
     // 변경할 targetId만 보냄.
     dispatch({
       type: 'UPDATE',
       targetId: targetId,
     })
-  }
+  }, []);
 
-  const onDelete = (targetId) => {
+  const onDelete = useCallback((targetId) => {
     // 삭제할 targetId만 보냄.
     dispatch({
       type: 'DELETE',
       targetId: targetId,
     })
-  }
+  },[]);
 
   return (
     <>
@@ -74,26 +78,3 @@ function App() {
 export default App
 
 
-
-// const onUpdate = (targetId) => {
-//   // todos state의 값들 중에
-//   // targetId 와 일치하는 id를 갖는 투두 아이템의 isDone 변경
-//   // todos 배열을 복제합니다.
-//   const updatedTodos = [...todos];
-
-//   // targetId에 해당하는 항목을 찾습니다.
-//   const todoIndex = updatedTodos.findIndex(todo => todo.id === targetId);
-
-//   // 해당 항목이 존재할 경우, isDone 값을 변경합니다.
-//   if (todoIndex !== -1) {
-//     updatedTodos[todoIndex] = {
-//       ...updatedTodos[todoIndex],
-//       isDone: true
-//     };
-//   }
-
-//   // 새로운 배열로 상태를 설정합니다.
-//   setTodos(updatedTodos);
-
-
-// }
