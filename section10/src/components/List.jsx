@@ -54,7 +54,7 @@ const List = ({ todos, onUpdate, onDelete }) => {
 
         </div>
 
-    </div>
-}
+    </div>         
+}     
 export default List;             
          
