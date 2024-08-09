@@ -37,3 +37,29 @@ const MemoizedComponent = memo(Component);
 
 ## 고차 컴포넌트(HOC)
 (https://patterns-dev-kr.github.io/design-patterns/hoc-pattern/)
+
+
+
+# useCallback 과 함수 재생성 방지.
+- 함수의 재생성을 방지하여 렌더링 될때마다 
+불필요한 함수생성을 방지하여 최적화한다. 
+
+# 최적화를 어떻게 진행할까?
+- 1. 기능 => 2. 최적화 
+
+# 최적화를 어떨때 진행할까?
+- 함수, 연산, 컴포넌트. 꼭 필요한 거에만.
+- 단순한 컴포넌트들은 안하는게 더 나음(ex. Header)
+- 함수가 많이 포함된 컴포넌트 등에 적용.
+
+
+# 아래 내용참조
+(https://goongoguma.github.io/2021/04/26/When-to-useMemo-and-useCallback/)
+```
+분명히 말씀드리자면 useCallback과 useMemo를 사용함으로써
+
+- 동료가 보기에 코드가 더 복잡해 질 수 있고
+- dependencies 배열을 잘못 사용할수도 있으며
+- 내부 훅을 호출함으로써 성능상 안쓰느니 못하게 만들 수도 있고
+- dependency들과 memoized된 값들이 가비지 컬랙터가 안되게 만들수도 있습니다. 굳이 성능상 이점을 원한다면 위 비용들의 발생을 감수할수도 있지만 손익분실 계산이 최우선이 되어야 합니다.
+```

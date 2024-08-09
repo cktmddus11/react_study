@@ -34,31 +34,32 @@ const TodoItem = ({ id, content, date, isDone, onUpdate, onDelete }) => {
         { }
     </div>
 }
+export default memo(TodoItem);
 
 // 고차 컴포넌트(HOC)
-export default memo(TodoItem, (prevProps, nextProps) => {
-    // callback함수를 커스터마이징하면 스스로 props가 변경됐는지
-    // 확인하는게 아니라 callback함수를 통해 판단하게됨.
-    // T -> Props 바뀌지 않음 => 리렌더링 X
-    // F -> Props 바뀜. => 리렌더링 O
+// export default memo(TodoItem, (prevProps, nextProps) => {
+//     // callback함수를 커스터마이징하면 스스로 props가 변경됐는지
+//     // 확인하는게 아니라 callback함수를 통해 판단하게됨.
+//     // T -> Props 바뀌지 않음 => 리렌더링 X
+//     // F -> Props 바뀜. => 리렌더링 O
 
-    //  id, content, date, isDone, onUpdate, onDelete 
-    // props 중 함수를 제외한 값들로만 비교하도록 작성.
+//     //  id, content, date, isDone, onUpdate, onDelete 
+//     // props 중 함수를 제외한 값들로만 비교하도록 작성.
 
-    if(prevProps.id !== nextProps.id){
-        return false;
-    }
-    if(prevProps.content !== nextProps.content){
-        return false;
-    }
-    if(prevProps.date !== nextProps.date){
-        return false;
-    }
-    if(prevProps.isDone !== nextProps.isDone){
-        return false;
-    }
-    return true;
-});
+//     if(prevProps.id !== nextProps.id){
+//         return false;
+//     }
+//     if(prevProps.content !== nextProps.content){
+//         return false;
+//     }
+//     if(prevProps.date !== nextProps.date){
+//         return false;
+//     }
+//     if(prevProps.isDone !== nextProps.isDone){
+//         return false;
+//     }
+//     return true;
+// });
 // 이런다고 todoItem 이 리렌더링이 발생하지 않음. 왜일까?
 // => 1. 체크박스를 클릭하면 App컴포넌트의 todo state값이 바뀌게 됨
 // 2. 그러면서 App컴포넌트는 리렌더링이 발생하기 때문에 
