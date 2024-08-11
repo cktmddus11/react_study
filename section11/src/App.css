@@ -1,0 +1,9 @@
+.App {
+    width : 500px;
+    margin : 0px auto; /* 가운데로 자동 배치 */
+
+    display: flex; /*  요소들의 배치를 쉽게 하기 위해서 ?? 한줄로 나오게됨. */
+    flex-direction : column;  /* display:flex로 설정한 요소를 한줄로 나온 요소를 한줄씩 배치 */
+    gap : 10px; /* 각 요소의 간격 조정*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
