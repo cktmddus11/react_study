@@ -1,10 +1,12 @@
 import TodoItem from './TodoItem';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useContext } from 'react';
 import './css/List.css';
+import { TodoContext } from '../App';
 
 
-const List = ({ todos, onUpdate, onDelete }) => {
+const List = () => {
     const [search, setSearch] = useState("");
+    const { todos } = useContext(TodoContext);
 
     const getAnalyzedData = () => { // 검색할 때는 렌더링 되며 재호출될필요없음. 이런경우 useMemo
         console.log("getAnalyzedData() call");
@@ -49,12 +51,11 @@ const List = ({ todos, onUpdate, onDelete }) => {
         <input placeholder="검색어를 입력하세요" onChange={onSearchChange} />
         <div className="todo_wrapper">
             {filterTodos.map((todo, key) => (
-                <TodoItem {...todo} onUpdate={onUpdate} onDelete={onDelete} key={key}/>
+                <TodoItem {...todo} key={key} />
             ))}
 
         </div>
 
-    </div>         
-}     
-export default List;             
-                      
+    </div>
+}
+export default List;

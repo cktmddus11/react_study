@@ -1,8 +1,12 @@
+import { useState, useRef, useContext } from 'react';
 import './css/Editor.css';
-import { useState, useRef } from "react";
+import { TodoContext } from '../App';
 
 
-const Editor = ({ onCreate }) => {
+const Editor = () => {
+    const { onCreate } = useContext(TodoContext); 
+    // context에 모든 값이 들어있기 떄문에 구조분해할당을로 필요한 onCreate만 읽어옴.
+    
     const [content, setContent] = useState("");
     const contentRef = useRef();
 
@@ -16,7 +20,7 @@ const Editor = ({ onCreate }) => {
     };
 
     const onSubmit = () => {
-        if(content === ""){
+        if (content === "") {
             alert("Todo를 입력해주세요");
             contentRef.current.focus();
             return;

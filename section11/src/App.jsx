@@ -1,4 +1,4 @@
-import { useState, useRef, useReducer, useCallback } from 'react'
+import { useState, useRef, useReducer, useCallback, createContext } from 'react'
 import Header from './components/Header';
 import Editor from './components/Editor';
 import List from './components/List';
@@ -25,6 +25,13 @@ function reducer(state, actoin) {
       state;
   }
 }
+
+// context : 컴포넌트 외부에 생성. 컴포넌트 리렌더링 시 재생성 되지 않게
+// 하기 위해서
+// Provider : 1.공급받을 컴포넌트 지정. 1.공급할 데이터 지정.
+// 컴포넌트이므로 App컴포넌트 내부에 사용하고 Editor 컴포넌트 외부를 감싸서 사용.
+export const TodoContext = createContext();
+
 
 function App() {
   const [todos, dispatch] = useReducer(reducer, mockData);
@@ -60,16 +67,22 @@ function App() {
       type: 'DELETE',
       targetId: targetId,
     })
-  },[]);
+  }, []);
 
   return (
     <>
       <div className='App'>
         <Header />
-        <Editor onCreate={onCreate} />
-        <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
+        <TodoContext.Provider value={{
+          todos, onCreate, onUpdate, onDelete
+        }}>
+          <Editor/>
+          <List todos={todos}
+            onUpdate={onUpdate}
+            onDelete={onDelete} />
 
-        {/* <Exam /> */}
+          {/* <Exam /> */}
+        </TodoContext.Provider>
       </div>
     </>
   )
