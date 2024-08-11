@@ -1,4 +1,8 @@
-import { useState, useRef, useReducer, useCallback, createContext } from 'react'
+import {
+  useState,
+  useRef, useReducer, useCallback,
+  createContext, useMemo
+} from 'react'
 import Header from './components/Header';
 import Editor from './components/Editor';
 import List from './components/List';
@@ -30,7 +34,11 @@ function reducer(state, actoin) {
 // 하기 위해서
 // Provider : 1.공급받을 컴포넌트 지정. 1.공급할 데이터 지정.
 // 컴포넌트이므로 App컴포넌트 내부에 사용하고 Editor 컴포넌트 외부를 감싸서 사용.
-export const TodoContext = createContext();
+// export const TodoContext = createContext();
+export const TodoDispatchContext = createContext();
+export const TodoStateContext = createContext();
+
+
 
 
 function App() {
@@ -69,20 +77,24 @@ function App() {
     })
   }, []);
 
+
+  const memoizedDispatch = useMemo(() => {
+    return { onCreate, onUpdate, onDelete }
+  }, []);
+
   return (
     <>
       <div className='App'>
         <Header />
-        <TodoContext.Provider value={{
-          todos, onCreate, onUpdate, onDelete
-        }}>
-          <Editor/>
-          <List todos={todos}
-            onUpdate={onUpdate}
-            onDelete={onDelete} />
-
-          {/* <Exam /> */}
-        </TodoContext.Provider>
+        <TodoStateContext.Provider value={todos}>
+          <TodoDispatchContext.Provider value={memoizedDispatch}>
+            <Editor />
+            <List todos={todos}
+              onUpdate={onUpdate}
+              onDelete={onDelete} />
+            {/* <Exam /> */}
+          </TodoDispatchContext.Provider>
+        </TodoStateContext.Provider>
       </div>
     </>
   )

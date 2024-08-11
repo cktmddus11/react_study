@@ -15,3 +15,4 @@ ex) App => ChildA => ChildB
     
     >>> 중간에 Context에 onUpdate, onDelete 등을 저장해두면 자식컴포넌트보다 더 하위 컴포넌트까지 사용할 수 있음.
 ```
+=>  적용 후 memo로 최적화 해둔게 적용이 안됨

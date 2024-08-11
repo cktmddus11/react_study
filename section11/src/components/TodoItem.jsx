@@ -1,10 +1,10 @@
 import './css/TodoItem.css';
 import { useState, memo, useContext } from "react";
-import { TodoContext } from '../App';
+import { TodoDispatchContext } from '../App';
 
 
 const TodoItem = ({ id, content, date, isDone }) => {
-    const { onUpdate, onDelete } = useContext(TodoContext);
+    const { onUpdate, onDelete } = useContext(TodoDispatchContext);
     const [isChecked, setIsChecked] = useState(isDone);
 
 

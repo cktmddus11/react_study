@@ -1,10 +1,10 @@
 import { useState, useRef, useContext } from 'react';
 import './css/Editor.css';
-import { TodoContext } from '../App';
+import { TodoDispatchContext } from '../App';
 
 
 const Editor = () => {
-    const { onCreate } = useContext(TodoContext); 
+    const { onCreate } = useContext(TodoDispatchContext); 
     // context에 모든 값이 들어있기 떄문에 구조분해할당을로 필요한 onCreate만 읽어옴.
     
     const [content, setContent] = useState("");

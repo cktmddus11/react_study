@@ -1,12 +1,12 @@
 import TodoItem from './TodoItem';
 import { useState, useMemo, useContext } from 'react';
 import './css/List.css';
-import { TodoContext } from '../App';
+import { TodoStateContext } from '../App';
 
 
 const List = () => {
     const [search, setSearch] = useState("");
-    const { todos } = useContext(TodoContext);
+    const todos = useContext(TodoStateContext);
 
     const getAnalyzedData = () => { // 검색할 때는 렌더링 되며 재호출될필요없음. 이런경우 useMemo
         console.log("getAnalyzedData() call");
