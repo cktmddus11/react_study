@@ -18,7 +18,7 @@ ex) App => ChildA => ChildB
 =>  하나의 Context에 모든걸 저장했더니 적용 후 memo로 최적화 해둔게 적용이 안됨 => 모두 리렌더링이 발생함. 
 
 
-#  Context 분리하기 
+##  Context 분리하기 
 - 1. AS-IS : TodoContext 에 todo, onCreate... 이렇게 저장해두었음.   
 => todo 가 변경 되며 props로 전달받는 todo가 바뀌기 때문에  TodoContext.Provider컴포넌트가 리렌더링이 발생함. 그래서 하위컴포넌트들이 다 리렌더링 되게 됨.   
 ```
