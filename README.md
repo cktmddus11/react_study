@@ -4,8 +4,8 @@
 ## SECTION 2 : Javascript 기본
 - 1. Truthy와 Falsy [x]
 - 2. 단락 평가 [x]
-- 3. 구조분해할당 [ ]
-- 4. Spread 연산자와 Rest 매개변수 [ ]
+- 3. 구조분해할당 [x]
+- 4. Spread 연산자와 Rest 매개변수 [x]
 - 5. 원시타입 VS 객체타입 [ ]
 - 6. 반복문으로 배열과 객체 순회하기 [x]
 - 7. 배열 메서드1. 요소 조작 [x]
@@ -62,3 +62,19 @@
 - 5. Read - 투두리스트 렌더링하기 [x]
 - 6. Update - 투두 수정하기 [x]
 - 7. Delete - 투두 삭제하기 [x]
+
+
+## SECTION 9 : useReducer 
+- 1. useReducer를 소개합니다 [x]
+- 2. 투두리스트 업그레이드 [x]
+
+## SECTION 10 : 최적화  
+- 1. 최적화란 [x]
+- 2. useMemo와 연산 최적화 [x]
+- 3. React.memo와 컴포넌트 렌더링 최적화 [x]
+- 4. useCallback과 함수 재생성 방지 [x]
+
+## SECTION 11 : Context 
+- 1. Context란 [x]
+- 2. Context 사용하기 [x]
+- 3. Context 분리하기 [x]
