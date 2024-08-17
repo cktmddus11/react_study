@@ -58,14 +58,14 @@ npm i react-router-dom
      - Routes 컴포넌트 밖에 추가한 것들은 모든 페이지에 렌더링된다. 
 
 
-## 12.2) 페이지 라우팅 3. 페이지 이동
+## 12.4) 페이지 라우팅 3. 페이지 이동
 ### 페이지 이동 두가지 방식 (1. 링크, 2. 특정 이벤트 시 이동 처리 )
-1. import { Link } from 'react-router-dom';
+1. App.jsx - import { Link } from 'react-router-dom';
 ```
   <div>
         <Link to={"/"}>Home</Link>
 ```
-2. import { useNavigate } from 'react-router-dom';
+2. App.jsx - import { useNavigate } from 'react-router-dom';
 ```
   const nav = useNavigate();
   const onClickButton = () => {
@@ -74,3 +74,27 @@ npm i react-router-dom
     <button onClick={onClickButton}>New 페이지 이동</button>
 
 ```
+
+## 12.5) 페이지 라우팅 4. 동적 경로
+### 동적경로(Dynamic Segments) 란?
+동적인 데이터를 담고있는 경로
+ex) ~/product/1, ~/product/2 상품의 아이디가 url에 포함.
+
+- Url Parameter : / 뒤에 아이템 id를 명시.   
+                  아이템 id 등의 변경되지 않는 값을 주소로 명시하기 위해 사용 
+- Query String : ? 뒤에 변수명과 값 명시.   
+                 검색어 등의 자주 변경되는 값을 주소로 명시 하기 위해 사용
+
+### Url Parameter 설정 
+1. App.jsx - <Route path="/diary/:id" element={<Diary />}></Route>
+2. Diary.jsx - import { useParams } from "react-router-dom";   
+```
+ const params = useParams();
+    return <>
+        <div>{params.id} 일기입니다. </div>
+```
+### Query String
+1. import { useSearchParams } from "react-router-dom";
+ ```const [params, setParams] = useSearchParams();
+    console.log(params.get("value"));
+    ```
