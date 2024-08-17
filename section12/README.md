@@ -53,4 +53,24 @@ npm i react-router-dom
 3. App.jsx - 각 페이지 컴포넌트 import
 4. App.jsx - import { Routes, Route } from 'react-router-dom;   
              <Routes><Route path="/" element={<Home/>} />
+### 주의 
+     - Routes 컴포넌트 안에는 Route 컴포넌트만 호출할 수 있다. 
+     - Routes 컴포넌트 밖에 추가한 것들은 모든 페이지에 렌더링된다. 
 
+
+## 12.2) 페이지 라우팅 3. 페이지 이동
+### 페이지 이동 두가지 방식 (1. 링크, 2. 특정 이벤트 시 이동 처리 )
+1. import { Link } from 'react-router-dom';
+```
+  <div>
+        <Link to={"/"}>Home</Link>
+```
+2. import { useNavigate } from 'react-router-dom';
+```
+  const nav = useNavigate();
+  const onClickButton = () => {
+    nav("/new");
+  }
+    <button onClick={onClickButton}>New 페이지 이동</button>
+
+```
