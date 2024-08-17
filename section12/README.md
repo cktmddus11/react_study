@@ -45,3 +45,12 @@ ex) /new -> new 페이지 렌더링
 
 ##  12.3) 페이지 라우팅 2. 라우팅 설정하기
 React Router(https://reactrouter.com/en/main)
+```
+npm i react-router-dom
+```
+1. main.jsx - <BrowserRouter /> 컴포넌트를 루트 컴포넌트로 위치
+2. src/pages - 각 페이지 별 컴포넌트 생성 및 export
+3. App.jsx - 각 페이지 컴포넌트 import
+4. App.jsx - import { Routes, Route } from 'react-router-dom;   
+             <Routes><Route path="/" element={<Home/>} />
+
