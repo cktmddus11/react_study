@@ -85,7 +85,7 @@ ex) ~/product/1, ~/product/2 상품의 아이디가 url에 포함.
 - Query String : ? 뒤에 변수명과 값 명시.   
                  검색어 등의 자주 변경되는 값을 주소로 명시 하기 위해 사용
 
-### Url Parameter 설정 
+### Url Parameter 설정
 1. App.jsx - <Route path="/diary/:id" element={<Diary />}></Route>
 2. Diary.jsx - import { useParams } from "react-router-dom";   
 ```
@@ -97,4 +97,36 @@ ex) ~/product/1, ~/product/2 상품의 아이디가 url에 포함.
 1. import { useSearchParams } from "react-router-dom";
  ```const [params, setParams] = useSearchParams();
     console.log(params.get("value"));
-    ```
+```
+
+## 12.6) 폰트, 이미지, 레이아웃 설정하기
+### 폰트
+1. public 정적 파일 저장하는 폴더에 폰트 파일 이동
+2. index.css : font-face 지정. body 태그 모든하위 요소에 폰트 적용
+
+###  이미지
+1. assert 폴더에 이미지 파일 이동.
+2. App.jsx 에 이미지 파일 import 
+3. javascript img 태그 src 요소로 이미지 연결
+
+### public, assert ? 
+- public 경로에 이미지 넣어도됨. 이떄 import 로 불러오는게 아니라 
+```
+<img src={"/emotion1.png"}>  
+```
+를 통해 바로 불러올 수 있음.
+- 그러나 vite는 public 경로의 이미지를 경로를 통해 불러오게 되면 이미지 최적화가 동작하지 않음.
+
+=> 배포명령어를 입력해서 실제 배포되는 파일을 통해 vite가 assets 폴더 이미지를 어떻게 최적화하는지 볼 수있음.
+
+### 배포 스크립트 후 개발자 도구로 최적화 확인해보기 
+1. npm run build >> dist라는 폴더가 생기게 됨 >> 빌드 결과. 모든 코드가 압축되어 bundling 되어있음. 
+2. 개발자 도구 >> elements 탭에서 각 이미지 태그를 확인해보면 public 에 있는 이미지는 일반 경로 url로 되어있는 반면 asserts 에 있는 이미지들은 data uri 로 되어있음.     
+```
+data uri
+- 외부데이터들을 문자열 형태로 캐싱하기 위해서 브라우저 메모리에 캐싱하기 위해서 사용되는 포맷.
+```
+따라서 public에 있는 이미지들은 매번 서버로 요청이가게 되고 asserts 는 캐싱된 이미지를 렌더링한다. 이를 네트워크 탭 > img > 네트워크 유지(로그보존) 체크 하여 
+크기 및 시간이 최적화 된 모습을 확인 할 수 있다. 
+
+> 그러나 이미지가 많아지면 이미지를 모두 브라우저 메모리에 캐싱하게 되면서 오히려 브라우저에 부담을 주게 된다. 따라서 이미지가 다수인경우는 public 폴더에서 불러오게 하고 소수인 경우 asserts 경로를 이용하도록 하자.
