@@ -1,9 +1,15 @@
 import { useSearchParams } from "react-router-dom";
+import Header, { getTodoDate } from '../components/Header';
+
+
 const Home = () => {
     const [params, setParams] = useSearchParams();
-    console.log(params.get("value"));
+
+    const today = getTodoDate('YYYY년 M월');
+
     return <>
-        HOME
+        <Header title={today} leftChild={"<"} rightChild={">"} />
+
     </>;
 };
 export default Home;

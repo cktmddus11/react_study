@@ -3,6 +3,7 @@
 ## Context란?
 - 컴포넌트간의 데이터를 전달하는 또 다른 방법
 - 기존의 Props가 가지고 있던 단점을 해결할 수 있음.
+![context](./Context.png)
 
 
 ## Props단점
@@ -15,7 +16,10 @@ ex) App => ChildA => ChildB
     
     >>> 중간에 Context에 onUpdate, onDelete 등을 저장해두면 자식컴포넌트보다 더 하위 컴포넌트까지 사용할 수 있음.
 ```
+![context issue](./Context2.png)
 =>  하나의 Context에 모든걸 저장했더니 적용 후 memo로 최적화 해둔게 적용이 안됨 => 모두 리렌더링이 발생함. 
+
+
 
 
 ##  Context 분리하기 
@@ -26,3 +30,5 @@ Q. App.jsx 에서 함수를 정의할 떄 useCallback, 각 하위컴포넌트에
 A. TodoContext.Provider가 리렌더링이 발생하기 때문에 props로 전달한 객체들도 다시 생성되게 되기 때문에 최적화가 풀리게됨.
 ```
 - 2. TO-BE : TodoContext를 나눠서 변경될 수있는 값과 변경될 값을 나누어서 저장하도록 변경.
+![context distribute](./Context3_1.png)
+![seperate context](./Context3_2.png)
