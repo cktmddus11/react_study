@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
-import Header, { getTodoDate } from '../components/Header';
+import Header from '../components/Header';
+import { getTodayDate } from '../util/get-today-date.js';
 
 
 const Diary = () => {
     const params = useParams();
-    const today = getTodoDate('YYYY-MM-DD');
+    const today = getTodayDate('YYYY-MM-DD');
     // const leftChild = {
     //     text : "< 뒤로 가기", 
     //     onClick : () =>  {

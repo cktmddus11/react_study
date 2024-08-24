@@ -11,17 +11,17 @@ import './App.css'
 
 
 
-function reducer(state, actoin) {
-  switch (actoin.type) {
+function reducer(state, action) {
+  switch (action.type) {
     case 'CREATE':
-      return [...state, actoin.data];
+      return [...state, action.data];
     case 'UPDATE':
-      return state.map((todo) => todo.id == actoin.targetId
+      return state.map((todo) => todo.id == action.targetId
         ? { ...todo, isDone: !todo.isDone }
         : todo
       );
     case 'DELETE':
-      return state.filter((state) => state.id !== actoin.targetId);
+      return state.filter((state) => state.id !== action.targetId);
     default:
       state;
   }

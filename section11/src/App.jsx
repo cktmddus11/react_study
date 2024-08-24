@@ -32,7 +32,7 @@ function reducer(state, actoin) {
 
 // context : 컴포넌트 외부에 생성. 컴포넌트 리렌더링 시 재생성 되지 않게
 // 하기 위해서
-// Provider : 1.공급받을 컴포넌트 지정. 1.공급할 데이터 지정.
+// Provider : 1.공급받을 컴포넌트 지정. 2.공급할 데이터 지정.
 // 컴포넌트이므로 App컴포넌트 내부에 사용하고 Editor 컴포넌트 외부를 감싸서 사용.
 // export const TodoContext = createContext();
 export const TodoDispatchContext = createContext();

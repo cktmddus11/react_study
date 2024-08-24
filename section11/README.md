@@ -4,6 +4,27 @@
 - 컴포넌트간의 데이터를 전달하는 또 다른 방법
 - 기존의 Props가 가지고 있던 단점을 해결할 수 있음.
 ![context](./Context.png)
+```javascript
+  import { createContext } from 'react';
+  export const TodoDispatchContext = createContext();
+
+   return (
+    <>
+      <div className='App'>
+        <Header />
+        <TodoStateContext.Provider value={todos}>
+        
+    ... 
+```
+
+
+### 주의
+- 컴포넌트 외부에 생성 => 컴포넌트 리렌더링 시 재생성 되지 않게 하기 위해서
+
+### Provider
+1.공급받을 컴포넌트 지정. 
+2.공급할 데이터 지정.   
+컴포넌트이므로 App컴포넌트 내부에 사용하고 공급할 화위 컴포넌트 외부를 감싸서 사용.
 
 
 ## Props단점

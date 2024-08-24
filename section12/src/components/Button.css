@@ -8,11 +8,24 @@
     white-space: nowrap;
 }
 
-.Button_POSITIVE {
+.Button_EXCELLENT {
     background-color: rgb(87, 173, 87);
     color : white;
 }
-.Button_NAGATIVE {
+
+.Button_GOOD {
     background-color: rgb(211, 81, 114);
+    color : white;
+}
+.Button_FAIR {
+    background-color: rgb(211, 81, 114);
+    color : white;
+}
+.Button_POOR {
+    background-color: rgb(87, 173, 87);
+    color : white;
+}
+.Button_TERRIBLE {
+    background-color: rgb(87, 173, 87);
     color : white;
 }
