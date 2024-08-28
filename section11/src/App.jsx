@@ -89,9 +89,7 @@ function App() {
         <TodoStateContext.Provider value={todos}>
           <TodoDispatchContext.Provider value={memoizedDispatch}>
             <Editor />
-            <List todos={todos}
-              onUpdate={onUpdate}
-              onDelete={onDelete} />
+            <List  />
             {/* <Exam /> */}
           </TodoDispatchContext.Provider>
         </TodoStateContext.Provider>

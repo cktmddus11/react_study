@@ -95,31 +95,15 @@ function App() {
 
   return (
     <>
-      <button onClick={() => {
-        onCreate(
-          new Date().getTime(), "추가", "2"
-        )
-      }}>추가 테스트</button>
-      <button onClick={() => {
-        onUpdate(
-          "3", new Date().getTime(), "수정", "3"
-        )
-      }}>수정 테스트</button>
-      <button onClick={() => {
-        onDelete(
-          "3"
-        )
-      }}>삭제 테스트</button>
-
       <DiaryStateContext.Provider value={data}>
         <DiaryDispatchContext.Provider value={{
           onCreate, onUpdate, onDelete
         }}>
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/new" element={<New onCreate={onCreate} />}></Route>
+            <Route path="/new" element={<New/>}></Route>
             <Route path="/diary/:id" element={<Diary />}></Route>
-            <Route path="/edit/:id" element={<Edit onUpdate={onUpdate} />}></Route>
+            <Route path="/edit/:id" element={<Edit  />}></Route>
             <Route path="*" element={<Notfound />}></Route>
           </Routes>
         </DiaryDispatchContext.Provider>
@@ -128,8 +112,23 @@ function App() {
   );
 }
 
-export default App
+export default App;
 
+{/* <button onClick={() => {
+  onCreate(
+    new Date().getTime(), "추가", "2"
+  )
+}}>추가 테스트</button>
+<button onClick={() => {
+  onUpdate(
+    "3", new Date().getTime(), "수정", "3"
+  )
+}}>수정 테스트</button>
+<button onClick={() => {
+  onDelete(
+    "3"
+  )
+}}>삭제 테스트</button> */}
 // import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 
 // import { getEmotionImage } from './util/get-emotion-image.js';

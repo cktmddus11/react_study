@@ -154,4 +154,9 @@ data uri
 2. reducer 에 action type별로 행위들을 구현해줌. 
 3. context 를 이용해 구현한 추가,수정, 삭제 메서드, data state를 다른 페이지에서도 
 사용할 수 있도록 함.
-4. 
+
+## 12.10) Home 페이지 구현하기 1. UI
+컴포넌트 
+- Header
+- DiaryList 
+- DiaryItem

@@ -1,5 +1,5 @@
-export function getTodayDate(format) {
-    const today = new Date();
+export function getTodayDate(format, todayDate) {
+    const today = (todayDate != '' ? todayDate : new Date());
 
     switch (format) {
         case 'YYYY-MM-DD':

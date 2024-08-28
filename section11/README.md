@@ -5,6 +5,7 @@
 - 기존의 Props가 가지고 있던 단점을 해결할 수 있음.
 ![context](./Context.png)
 ```javascript
+// App.js
   import { createContext } from 'react';
   export const TodoDispatchContext = createContext();
 
@@ -15,6 +16,12 @@
         <TodoStateContext.Provider value={todos}>
         
     ... 
+```
+```javascript 
+// List.jsx
+  import { TodoStateContext } from '../App';
+  const todos = useContext(TodoStateContext);
+
 ```
 
 

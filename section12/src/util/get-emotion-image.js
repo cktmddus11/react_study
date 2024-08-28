@@ -14,4 +14,4 @@ export function getEmotionImage(emotionId){
     }
 }
 
-//export default getEmotionImage;
+// export default getEmotionImage;

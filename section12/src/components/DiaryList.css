@@ -1,0 +1,23 @@
+.DiaryList .menu_bar {
+    margin: 20px 0px; /* 외부 간격 */
+    display: flex; /* 여러 속성을 자유롭게 배치하도록함.
+    기본적으로 한줄로 배치됨 */
+    gap : 10px; /* 각 요소의 간격을 조정*/
+}
+
+.DiaryList .menu_bar select {
+    background-color: rgb(230, 230, 230);
+    border : none;
+    border-radius: 5px;
+    
+    padding : 10px 20px; /* 내부 여백 상하, 좌우*/
+    font-size : 18px;
+    cursor: pointer;
+}
+.DiaryList .menu_bar Button {
+    flex : 1;
+}
+
+.DiaryList .list_wrapper {
+
+}

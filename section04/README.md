@@ -89,3 +89,82 @@ npm run dev
 웹 브라우저가 React Server을 접속하도록 함.
 로컬 컴퓨터에서는 port 는 중복 될 수 없음.
 http://localhost:5173/
+
+
+
+
+## 프로젝트 구조
+Vite를 이용한 React 프로젝트에서 폴더 구조를 설정하는 방식은 프로젝트의 규모, 팀의 선호도, 또는 개발자의 스타일에 따라 달라질 수 있습니다. 하지만 일반적으로 사용하는 폴더 구조를 소개하겠습니다.
+
+### 1. 기본 폴더 구조
+
+```plaintext
+my-react-app/
+├── public/
+│   ├── favicon.svg
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── assets/              # 이미지, 폰트 등 정적 파일
+│   ├── components/          # 재사용 가능한 컴포넌트
+│   ├── pages/               # 페이지 단위 컴포넌트
+│   ├── styles/              # 전역 스타일 시트 (CSS, SCSS 등)
+│   ├── hooks/               # 커스텀 React hooks
+│   ├── context/             # React context API 관련 파일
+│   ├── utils/               # 유틸리티 함수 및 헬퍼 함수
+│   ├── App.jsx              # 루트 컴포넌트
+│   ├── main.jsx             # 엔트리 포인트 파일 (ReactDOM.render)
+│   └── index.css            # 전역 CSS
+├── .gitignore               # Git에서 무시할 파일 목록
+├── index.html               # 기본 HTML 템플릿
+├── package.json             # npm 의존성 관리
+├── vite.config.js           # Vite 설정 파일
+└── README.md                # 프로젝트 설명 문서
+```
+
+### 2. 폴더별 역할
+
+- **`public/`**: `index.html` 같은 정적 파일을 넣는 폴더입니다. 빌드 시 그대로 복사됩니다.
+- **`src/`**: 소스 코드가 들어있는 폴더입니다. 대부분의 작업이 이 폴더 내에서 이루어집니다.
+  - **`assets/`**: 이미지, 아이콘, 폰트 같은 정적 리소스를 넣습니다.
+  - **`components/`**: 작은 UI 요소들을 구성하는 재사용 가능한 React 컴포넌트를 여기에 넣습니다.
+  - **`pages/`**: 각각의 페이지에 해당하는 컴포넌트를 넣습니다. 보통 `React Router`를 사용해 페이지를 구성할 때 사용됩니다.
+  - **`styles/`**: 전역 스타일 시트를 관리하는 폴더입니다. 프로젝트에서 사용할 CSS 또는 SCSS 파일을 여기에 배치합니다.
+  - **`hooks/`**: 커스텀 훅을 정의하는 곳입니다. `useAuth`, `useFetch` 같은 커스텀 훅을 여기에 넣습니다.
+  - **`context/`**: `React Context API`를 사용하여 상태를 전역으로 관리할 때, 컨텍스트와 관련된 파일을 여기에 넣습니다.
+  - **`utils/`**: 프로젝트 전반에서 사용할 수 있는 유틸리티 함수나 헬퍼 함수를 여기에 넣습니다.
+  - **`App.jsx`**: 애플리케이션의 루트 컴포넌트입니다.
+  - **`main.jsx`**: 애플리케이션의 엔트리 포인트로, `ReactDOM.createRoot`를 통해 루트 컴포넌트를 마운트합니다.
+  - **`index.css`**: 전역 스타일을 정의하는 CSS 파일입니다.
+  
+### 3. Vite 설정 파일 (`vite.config.js`)
+
+`vite.config.js`는 Vite의 설정을 커스터마이즈할 때 사용됩니다. 예를 들어, alias를 설정하여 경로를 짧게 사용할 수 있습니다:
+
+```javascript
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@pages': path.resolve(__dirname, './src/pages'),
+    },
+  },
+});
+```
+
+위의 설정을 적용하면, `import` 구문에서 상대 경로 대신 절대 경로를 사용할 수 있게 되어 코드가 더 읽기 쉬워집니다:
+
+```javascript
+import Header from '@components/Header';
+import HomePage from '@pages/HomePage';
+```
+
+### 결론
+
+Vite를 이용한 React 프로젝트에서의 폴더 구조는 프로젝트의 유지 보수와 확장성을 고려해 설계하는 것이 중요합니다. 위에서 설명한 구조는 대부분의 프로젝트에서 유용하게 사용할 수 있으며, 필요에 따라 확장하거나 수정할 수 있습니다.

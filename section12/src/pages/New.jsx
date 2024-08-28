@@ -1,16 +1,20 @@
 import Header from '../components/Header';
 import Button from '../components/Button';
 import { getTodayDate } from '../util/get-today-date.js';
+import { DiaryDispatchContext } from '../App';
+import { useContext  } from 'react';
 
 
-const New = ({ onCreate }) => {
+const New = () => {
+    const { onCreate } = useContext(DiaryDispatchContext);
     function onClick() {
 
         onCreate();
     }
 
     return <>
-        <Header title={"새 일기 쓰기"} leftChild={"< 뒤로 가기"} />
+        <Header title={"새 일기 쓰기"} 
+            leftChild={<Button text="< 뒤로 가기" />} />
 
         <div>오늘의 날짜</div>
         <input type="date"
