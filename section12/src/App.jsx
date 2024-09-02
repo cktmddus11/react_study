@@ -14,15 +14,33 @@ import { useReducer, useRef, createContext } from 'react';
 const mockData = [
   {
     id: 1,
-    createDate: new Date().getTime(), // timestamp 
+    createDate: new Date('2024-08-31').getTime(), // timestamp 
     emotionId: 3,
     content: "1번 일기"
   },
   {
     id: 2,
-    createDate: new Date().getTime(), // timestamp 
+    createDate: new Date('2024-08-30').getTime(), // timestamp 
     emotionId: 1,
     content: "2번 일기"
+  },
+  {
+    id: 3,
+    createDate: new Date('2024-07-30').getTime(), // timestamp 
+    emotionId: 1,
+    content: "3번 일기"
+  },
+  {
+    id: 4,
+    createDate: new Date('2024-09-30').getTime(), // timestamp 
+    emotionId: 1,
+    content: "4번 일기"
+  },
+  {
+    id: 5,
+    createDate: new Date('2024-09-02').getTime(), // timestamp 
+    emotionId: 4,
+    content: "5번 일기"
   }
 ]
 
@@ -57,7 +75,7 @@ export const DiaryStateContext = createContext();
 
 function App() {
   const [data, dispatch] = useReducer(reducer, mockData);
-  const idRef = useRef(3);
+  const idRef = useRef(mockData[mockData.length -1].id);
 
 
   // 새로운 일기 추가 

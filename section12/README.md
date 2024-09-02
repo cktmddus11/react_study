@@ -160,3 +160,11 @@ data uri
 - Header
 - DiaryList 
 - DiaryItem
+
+## 12.11) Home 페이지 구현하기 2. 기능 
+- Home.jsx 좌, 우 버튼 별 날짜 이동. => 여기도 useState로 변경필요
+- 버튼 클릭시 해당 월의 일기만 조회되도록 필터링.
+- DiaryItem 눌렀을 떄 상세페이지로 이동, 수정버튼 클릭해서 해당 일기의 상세페이지로 이동.
+- 새로운 일기 쓰기 버튼
+- 조회된 일기 리스트 최신순, 오래된순 정렬 => 간단하니까 useState로 처리.
+[useState vs useReducer](./useReducer,useState.md)
