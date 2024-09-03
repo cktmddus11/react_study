@@ -168,3 +168,4 @@ data uri
 - 새로운 일기 쓰기 버튼
 - 조회된 일기 리스트 최신순, 오래된순 정렬 => 간단하니까 useState로 처리.
 [useState vs useReducer](./useReducer,useState.md)
+- [강의자료 Array.sort()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
