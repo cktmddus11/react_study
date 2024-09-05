@@ -1,5 +1,5 @@
 // import {  useSearchParams } from "react-router-dom";
-import { useReducer } from "react";
+import { useState } from "react";
 import Header from '../components/Header';
 import { getTodayDate } from '../util/get-today-date.js';
 import DiaryList from '../components/DiaryList';
@@ -8,19 +8,7 @@ import { useContext } from "react";
 import { DiaryStateContext } from "../App.jsx";
 
 
-function reducer(state, action) {
-    const dateValue = action.dateValue;
-    switch (action.type) {
-        case 'LEFT':
-            return new Date(dateValue.setMonth(dateValue.getMonth() - 1));
-        case 'RIGHT':
-            return new Date(dateValue.setMonth(dateValue.getMonth() + 1));
-        default:
-            return state;
-    }
-}
-
-function diaryFilterForDate(thisMonth, diaryList) {
+function filterDiaryListForDate(thisMonth, diaryList) {
     // 이달의 시작일 (YYYY-MM-01 00:00:00)
     const begeinTime = new Date(thisMonth.getFullYear(), thisMonth.getMonth(), 1
         , 0, 0, 0)
@@ -37,23 +25,17 @@ function diaryFilterForDate(thisMonth, diaryList) {
 
 
 const Home = () => {
-    const [thisMonth, dispatch] = useReducer(reducer, new Date());
+    const [thisMonth, setThisMonth] = useState(new Date());
     const diaryList = useContext(DiaryStateContext);
 
-    const thisMonthDiaryList = diaryFilterForDate(thisMonth, diaryList);
+    const thisMonthDiaryList = filterDiaryListForDate(thisMonth, diaryList);
 
     const onClickLeftButton = () => {
-        dispatch({
-            type: 'LEFT',
-            dateValue: thisMonth
-        });
+       setThisMonth(new Date(thisMonth.setMonth(thisMonth.getMonth() - 1)));
     };
 
     const onClickRightButton = () => {
-        dispatch({
-            type: 'RIGHT',
-            dateValue: thisMonth
-        })
+       setThisMonth(new Date(thisMonth.setMonth(thisMonth.getMonth() + 1)));
     }
 
     return <>

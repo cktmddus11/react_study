@@ -166,6 +166,21 @@ data uri
 - 버튼 클릭시 해당 월의 일기만 조회되도록 필터링.
 - DiaryItem 눌렀을 떄 상세페이지로 이동, 수정버튼 클릭해서 해당 일기의 상세페이지로 이동.
 - 새로운 일기 쓰기 버튼
-- 조회된 일기 리스트 최신순, 오래된순 정렬 => 간단하니까 useState로 처리.
+- 조회된 일기 리스트 최신순, 오래된순 정렬 => 간단하니까 useState로 처리.   
 [useState vs useReducer](./useReducer,useState.md)
 - [강의자료 Array.sort()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+
+
+## 12.11) Home 페이지 구현하기 3. 회고
+- diary 데이터 관리를 위해 useReducer 사용
+  - app.jsx에 있는 이유는 모든 컴포넌트에서 이데이터를 사용해야하기 때문에.
+  - context 를 이용해 부모에서 자식방향으로 전달가능해서.
+- Context 이용해서 props Driling 방지하며 모든 페이지에 diary data 전달
+- 현재월을 useState 에 저장해두어 좌, 우 버튼 이동시에 사용
+
+
+## 12.13) New 페이지 구현하기 1. UI 
+컴포넌트 구성   
+- Header
+- Editor
+  - EmotionItem
