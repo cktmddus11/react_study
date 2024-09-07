@@ -31,3 +31,7 @@ function App(){
 2. useReducer로 인해 reducer함수가 호출함. 
 3. reducer 함수는 state 객체와 dispatch에서 넘겨준 액션 객체를 받고 
    액션대로 상태를 변화시킴
+
+### 참고
+   [useState vs useReducer](../section12/useReducer,useState.md)
+   
