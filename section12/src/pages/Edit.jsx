@@ -14,8 +14,13 @@ const Edit = () => {
     const data = useContext(DiaryStateContext);
 
     const onSubmit = (input) => {
+        if (!window.confirm("일기를 정말 수정할까요?")) {
+            return;
+        }
+
         let targetId = param.id;
         onUpdate(targetId, input.createDate, input.content, input.emotionId);
+        nav('/', {replace : true})
     }
     const onClickDeleteButton = () => {
         if (window.confirm("일기를 정말 삭제할까요? 다시 복구되지 않아요!")) {
