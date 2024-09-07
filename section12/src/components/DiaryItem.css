@@ -33,6 +33,10 @@
     background-color: rgb(253, 206, 23); /* 세 번째 이미지 섹션의 배경색을 노란색으로 설정 */
 }
 .DiaryItem .img_section_4 {
+    background-color: rgb(253 132 70); /* 네 번째 이미지 섹션의 배경색을 붉은색으로 설정 */
+}
+
+.DiaryItem .img_section_5 {
     background-color: rgb(253, 86, 95); /* 네 번째 이미지 섹션의 배경색을 붉은색으로 설정 */
 }
 

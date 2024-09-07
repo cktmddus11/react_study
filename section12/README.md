@@ -184,3 +184,8 @@ data uri
 - Header
 - Editor
   - EmotionItem
+
+
+## 12.14) New 페이지 구현 기능 2. 기능
+- 뒤로가기 버튼 구현
+# 
