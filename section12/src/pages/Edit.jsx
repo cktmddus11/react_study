@@ -10,8 +10,8 @@ const Edit = () => {
     const param = useParams();
     const nav = useNavigate();
     const { onUpdate, onDelete } = useContext(DiaryDispatchContext);
-    const [currentDiaryItem, setCurrentItemDiary] = useState();
     const data = useContext(DiaryStateContext);
+    const [currentDiaryItem, setCurrentItemDiary] = useState();
 
     const onSubmit = (input) => {
         if (!window.confirm("일기를 정말 수정할까요?")) {
@@ -36,7 +36,7 @@ const Edit = () => {
     //         window.alert("존재하지 않는 일기입니다.");
     //         nav("/", {replace : true}); // navigate 함수는 컴포넌트가 다 랜더링 되고나서 동작할 수 
     //     }                       // 있기 때문에 지금 처럼 화면에 랜더링 되면서 바로 호출되는 함수로
-    //                             // 구면되면 안됨 useEffect를 이용해서 처음 렌더링 될떄 호출되도록 해야함
+    //                             // 구현되면 안됨 useEffect를 이용해서 처음 렌더링 될떄 호출되도록 해야함
     //                             // 왜? navigate함수는 Router함수가 공급하는 기능이기 때문. 
     //     return currentDiaryItem;
     // } 

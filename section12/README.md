@@ -45,8 +45,18 @@ ex) /new -> new 페이지 렌더링
 => React App 는 모든페이지, 컴포넌트의 정보가 포함되어있기 때문이다.  
 - MPA 방식에서처럼 페이지 이동시 화면의 모든 요소를 교체했던 반면 SPA방식은 화면에서 필요한 요소(컴포넌트)만 교체하는 방식. 
 
+
+
+> React Router란?   
+React Router는 React 애플리케이션에서 클라이언트 측 라우팅을 쉽게 구현할 수 있도록 도와주는 라이브러리입니다. 클라이언트 측 라우팅은 서버가 아닌 클라이언트(브라우저)에서 URL을 변경하여 서로 다른 페이지를 보여주는 방식입니다.   
+기본적으로 React는 **단일 페이지 애플리케이션(SPA)**을 구축하는 데 사용됩니다.   
+단일 페이지 애플리케이션은 하나의 HTML 파일로 구동되며, 페이지 이동 시마다 전체 페이지를 새로 고침하지 않고, URL만 변경되며 페이지 일부를 갱신하는 방식으로 동작합니다. React Router는 이러한 동작을 가능하게 하여 사용자가 다른 페이지로 이동하는 것처럼 보이게 합니다.
+
+
 ##  12.3) 페이지 라우팅 2. 라우팅 설정하기
 React Router(https://reactrouter.com/en/main)
+Routes는 React Router에서 여러 라우트 경로를 정의하는 컨테이너입니다.
+Route는 각 URL 경로와 연결된 컴포넌트를 렌더링하는 역할을 합니다.
 ```
 npm i react-router-dom
 ```
@@ -55,20 +65,38 @@ npm i react-router-dom
 3. App.jsx - 각 페이지 컴포넌트 import
 4. App.jsx - import { Routes, Route } from 'react-router-dom;   
              <Routes><Route path="/" element={<Home/>} />
+```jsx
+import { Routes, Route } from 'react-router-dom';
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+    </Routes>
+  );
+}
+
+```
+
 ### 주의 
      - Routes 컴포넌트 안에는 Route 컴포넌트만 호출할 수 있다. 
      - Routes 컴포넌트 밖에 추가한 것들은 모든 페이지에 렌더링된다. 
 
 
 ## 12.4) 페이지 라우팅 3. 페이지 이동
-### 페이지 이동 두가지 방식 (1. 링크, 2. 특정 이벤트 시 이동 처리 )
-1. App.jsx - import { Link } from 'react-router-dom';
-```
+### 페이지 이동 두가지 방식
+1. 링크
+```jsx
   <div>
         <Link to={"/"}>Home</Link>
+  </div>
 ```
-2. App.jsx - import { useNavigate } from 'react-router-dom';
-```
+2. 특정 이벤트 시 이동 처리 
+```jsx
+
+  import { useNavigate } from 'react-router-dom';
+
   const nav = useNavigate();
   const onClickButton = () => {
     nav("/new");
@@ -90,7 +118,7 @@ ex) ~/product/1, ~/product/2 상품의 아이디가 url에 포함.
 ### Url Parameter 설정
 1. App.jsx - <Route path="/diary/:id" element={<Diary />}></Route>
 2. Diary.jsx - import { useParams } from "react-router-dom";   
-```
+```jsx
  const params = useParams();
     return <>
         <div>{params.id} 일기입니다. </div>

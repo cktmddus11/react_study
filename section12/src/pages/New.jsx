@@ -21,8 +21,7 @@ const New = () => {
  
     return <>
         <Header title={"새 일기 쓰기"} 
-            leftChild={<Button text="< 뒤로 가기" 
-            onClick={onClickButton} />} />
+            leftChild={<Button text="< 뒤로 가기" onClick={onClickButton} />} />
         <Editor onSubmit={onSubmit} />
     </>;
 };
