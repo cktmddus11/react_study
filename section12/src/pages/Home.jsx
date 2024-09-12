@@ -1,7 +1,7 @@
 // import {  useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import Header from '../components/Header';
-import { getTodayDate } from '../util/get-today-date.js';
+import { getInputDate } from '../util/get-today-date.js';
 import DiaryList from '../components/DiaryList';
 import Button from '../components/Button';
 import { useContext } from "react";
@@ -39,7 +39,7 @@ const Home = () => {
     }
 
     return <>
-        <Header title={getTodayDate('YYYY년 M월', thisMonth)}
+        <Header title={getInputDate('YYYY년 M월', thisMonth)}
             leftChild={<Button text={"<"} onClick={onClickLeftButton} />}
             rightChild={<Button text={">"} onClick={onClickRightButton} />} />
         <DiaryList diaryList={thisMonthDiaryList} />

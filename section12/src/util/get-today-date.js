@@ -4,7 +4,7 @@
 
 
 */
-export function getinputDate(format, inputDate) {
+export function getInputDate(format, inputDate) {
     const inputDateValue = inputDate ?
         new Date(inputDate) :
         new Date();
@@ -14,7 +14,7 @@ export function getinputDate(format, inputDate) {
             return inputDateValue.toISOString().split('T')[0]; // '2022-08-22' 형식
 
         case 'YYYY년 M월':
-            return new Intl.inputDateValueFormat('ko-KR', { year: 'numeric', month: 'long' }).format(inputDateValue); // '2022년 8월' 형식
+            return new Intl.DateTimeFormat('ko-KR', { year: 'numeric', month: 'long' }).format(inputDateValue); // '2022년 8월' 형식
 
         case 'YYYY/MM/DD':
             return inputDateValue.toLocaleDateString('ko-KR').replace(/\./g, '').replace(/ /g, '-'); // '2022/08/22' 형식

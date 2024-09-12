@@ -1,6 +1,6 @@
 import EmotionItem from './EmotionItem.jsx';
 import Button from './Button';
-import { getTodayDate } from '../util/get-today-date.js';
+import { getInputDate } from '../util/get-today-date.js';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './Editor.css';
@@ -83,7 +83,7 @@ const Editor = ({ onSubmit, initData }) => {
         <section className="date_section">
             <h4>오늘의 날짜</h4>
             <input type="date" name="createDate"
-                value={getTodayDate('YYYY-MM-DD', input.createDate)}
+                value={getInputDate('YYYY-MM-DD', input.createDate)}
                 onChange={onChangeInput} />
         </section>
         <section className="emotion_section">
