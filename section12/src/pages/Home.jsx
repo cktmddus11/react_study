@@ -1,7 +1,7 @@
 // import {  useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import Header from '../components/Header';
-import { getInputDate } from '../util/get-today-date.js';
+import { getInputDate } from '../util/get-input-date.js';
 import DiaryList from '../components/DiaryList';
 import Button from '../components/Button';
 import { useContext } from "react";

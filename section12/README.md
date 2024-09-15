@@ -1,5 +1,5 @@
 #  12. 감정일기장 프로젝트 
-완성본 (https://emotion-diary.winterlood.com/)
+[완성본](https://emotion-diary.winterlood.com/)
 ## 12.1) 프로젝트 소개 및 준비
 ### 감정 일기장 프로젝트 목표
 1. 외부 폰트 사용법

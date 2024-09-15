@@ -1,30 +1,12 @@
 import EmotionItem from './EmotionItem.jsx';
 import Button from './Button';
-import { getInputDate } from '../util/get-today-date.js';
+import { getInputDate } from '../util/get-input-date.js';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { emotionList } from '../util/constants.js';
 import './Editor.css';
 
 
-const emotionList = [
-    {
-        emotionId: 1,
-        emotinName: "완전 좋음"
-    }, {
-        emotionId: 2,
-        emotinName: "좋음"
-    }, {
-        emotionId: 3,
-        emotinName: "그럭저럭"
-    }, {
-        emotionId: 4,
-        emotinName: "나쁨"
-    }, {
-        emotionId: 5,
-        emotinName: "끔찍함"
-    }
-
-];
 
 
 const Editor = ({ onSubmit, initData }) => {

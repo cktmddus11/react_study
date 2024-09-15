@@ -12,8 +12,6 @@
     margin-bottom: 10px;
 }
 
-.EmotionItem .emotion_name {}
-
 .EmotionItem_on_1 {
     color: white;
     background-color: rgb(100, 201, 100); /* 첫 번째 이미지 섹션의 배경색을 녹색으로 설정 */

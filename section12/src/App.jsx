@@ -84,7 +84,7 @@ function App() {
     dispatch({
       type: 'CREATE',
       data: {
-        id: idRef.current++,
+        id: ++idRef.current,
         createDate: createDate,
         emotionId: emotionId,
         content: content
