@@ -216,4 +216,52 @@ data uri
 
 ## 12.14) New 페이지 구현 기능 2. 기능
 - 뒤로가기 버튼 구현
-# 
+
+
+
+## 12.17) 웹 스토리지 이용하기
+- 웹 스토리지(Web Storage) : 데이터를 브라우저에 보관하는 방법, 일종의 데이터베이스
+- 배포 준비하기 : 프로젝트를 배포하기 전, 타이틀, Favicon, OG 설정 진행.
+- 배포하기 : 리액트 앱을 배포하는 방법
+
+### 최적화는 언제 필요할까?
+- 비용이 많이 드는 계산   
+  ex) API 호출해서 ~ 데이터를 가공하고 ~ 하는 등등의 작업
+- 매우 여러번, 반복적으로 실행되는 연산   
+  ex) API 호출해서 ~ 데이터를 가공하고 ~ 하는 등등의 작업들
+
+### 웹 브라이저 내장 DB - Web Storage
+- 웹 브라우저에 기본적으로 내장되어 있는 데이터베이스
+- 별도의 프로그램 설치 필요 X, 라이브러리 설치 필요 X
+- 그냥 자바스크립트 내장함수 만으로 접근 가능.
+
+- ex)    
+    값을 저장 : localStorage.setItem(key, value)  
+    값을 꺼냄 : localStorage.getItem(key)
+    값을 삭제 : localStorage.removeItem(key)
+
+
+### SessionStorage, LocalStorage
+storage에서 값을 꺼내는 문법은 동일함.
+- SessionStorage
+  - 브라우저 탭 별로 데이터를 보관
+  - 탭이 종료되기전에는 데이터 유지(새로고침 시에도 유지)
+  - 탭이 종료되거나 꺼지면 데이터 삭제
+- LocalStorage
+  - 사이트 주소별로 데이터 보관
+  - 사용자가 직접 삭제하기 전까지 데이터 보관
+
+### LocalStorage 확인
+- chrome > Applicatin > Storage > Local Storage
+사이트별로 보관되고 있음.
+- 저장 
+  - 문자열 형태로 값을 저장하기 때문에 객체를 저장하면 [object Object]로 저장됨.    
+  => JSON.stringfy 메서드로 문자열로 변환해서 저장하기.
+- 조회 
+  - JSON.parse 메서드로 문자열 json 을 객체로 파싱
+  - 주의 : JSON.parse 는 undefined 가 넘어가지 않도록해야함. 에러남.
+```javascript
+  localStorage.setItem("person", JSON.stringify({ name: "차승연" }));
+  const person = localStorage.getItem("person")
+  console.log(JSON.parse(person));
+```

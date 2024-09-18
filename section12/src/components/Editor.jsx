@@ -21,7 +21,7 @@ const Editor = ({ onSubmit, initData }) => {
         if(initData){
             setInput({
                 ...initData,
-                createDate : new Date(Number(initData.createDate)),
+                createDate : Number(initData.createDate),
             });
         }
        

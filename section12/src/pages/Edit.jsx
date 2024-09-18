@@ -14,7 +14,7 @@ const Edit = () => {
     const currentDiaryItem = useDiary(param.id);
 
     const onSubmit = (input) => {
-        if (!window.confFirm("일기를 정말 수정할까요?")) {
+        if (!window.confirm("일기를 정말 수정할까요?")) {
             return;
         }
 
