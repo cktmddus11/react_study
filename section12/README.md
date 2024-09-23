@@ -265,3 +265,16 @@ storage에서 값을 꺼내는 문법은 동일함.
   const person = localStorage.getItem("person")
   console.log(JSON.parse(person));
 ```
+
+## 12.18) 배포 준비를 위해 해야할 작업
+1. 페이지 타이틀 설정하기
+  - index.html 의 title을 변경해주면됨.
+  - 각 페이지마다 다른 title을 하고 싶으면 페이지 렌더링 시에 돔을 조작해주면됨. 
+  - 공통된 로직이므로 hook 을 이용해 각 페이지가 렌더링이 될떄 title이 변경되면 title 돔을 변경해주도록 useEffect 코드를 작성함.
+2. Favicon 설정하기
+  - public 경로에 이미지를 올려둠.
+  - index.html 에 <link ref="icon" ...href=""> 을 아이콘 경로로 변경해줌.
+3. 오픈 그래프 태그 설정하기
+  - index.html 에 <meta property="og:title/description/image"  ... />
+4. 프로젝트 빌드(Build)
+  - npm run build

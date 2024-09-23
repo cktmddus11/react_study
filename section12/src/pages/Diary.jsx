@@ -4,11 +4,12 @@ import { getInputDate } from '../util/get-input-date.js';
 import { useParams, useNavigate } from "react-router-dom";
 import Button from '../components/Button'
 import useDiary from "../hooks/useDiary";
-
+import { usePageTitle } from '../hooks/usePageTitle.jsx';
 
 const Diary = () => {
     const param = useParams();
     const nav = useNavigate();
+    usePageTitle(param.id+"번 일기")
 
     const currentDiaryItem = useDiary(param.id);
     console.log(currentDiaryItem);

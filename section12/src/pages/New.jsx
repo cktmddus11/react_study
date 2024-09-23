@@ -4,10 +4,14 @@ import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
 import { DiaryDispatchContext } from '../App';
 import { useContext } from 'react';
+import { usePageTitle } from '../hooks/usePageTitle.jsx';
 
 const New = () => {
     const nav = useNavigate();
     const { onCreate } = useContext(DiaryDispatchContext); 
+    usePageTitle("새 일기 쓰기")
+   
+
 
     const onClickButton =() => {
       //  nav("/");
